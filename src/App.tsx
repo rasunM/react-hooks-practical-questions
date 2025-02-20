@@ -1,10 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
 import React, {useEffect, useState} from 'react';
 import {
   ActivityIndicator,
@@ -14,6 +7,7 @@ import {
   View,
 } from 'react-native';
 import {PostModel} from './types/model_types';
+import ItemCard from './components/item_card';
 
 function App(): React.JSX.Element {
   const [isLoading, setLoading] = useState<boolean>(true);
@@ -30,23 +24,33 @@ function App(): React.JSX.Element {
       setLoading(false);
     }
   };
+
   useEffect(() => {
     getData();
   }, []);
 
+  if (isLoading) {
+    return <ActivityIndicator />;
+  }
+
   return (
     <View style={styles.safePadding}>
-      {isLoading ? (
-        <ActivityIndicator />
-      ) : (
-        <FlatList
-          data={products}
-          keyExtractor={product => `key-${product.id}`}
-          renderItem={product => (
-            <Text style={styles.itemCard}>{product.item.id} - {product.item.title}</Text>
-          )}
-        />
-      )}
+      <Text style={styles.mainHeader}>Products List</Text>
+      <FlatList
+        data={products}
+        keyExtractor={item => `key-${item.id}`}
+        renderItem={({item}) => (
+          <ItemCard
+            title={item.title}
+            description=""
+            id={item.id}
+            image={item.image}
+            category={item.category}
+          />
+        )}
+        numColumns={2}
+        contentContainerStyle={styles.flatListContainer} 
+      />
     </View>
   );
 }
@@ -54,16 +58,18 @@ function App(): React.JSX.Element {
 const styles = StyleSheet.create({
   safePadding: {
     padding: '10%',
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: '#F3F3F3',
+    flex: 1,  
   },
-  itemCard: {
-    gap: 10,
+  mainHeader: {
+    fontWeight: '600',
+    fontSize: 25,
+    marginBottom: 10,
   },
-  items: {
-    alignItems: 'center'
-  }
+  flatListContainer: {
+    justifyContent: 'space-between', 
+    alignItems: 'center', 
+  },
 });
 
 export default App;
