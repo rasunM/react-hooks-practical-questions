@@ -6,7 +6,9 @@ function ItemCard({title, id, description, image, category}: PostModel) {
   return (
     <View style={styles.container}>
       <Image source={{uri: image}} style={styles.image} />
-      <Text>{category}</Text>
+      <View style={styles.textSection}>
+        <Text>{category}</Text>
+      </View>
     </View>
   );
 }
@@ -22,11 +24,16 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     padding: 30,
     margin: 10,
-    elevation: 0.1,
+    elevation: 9,
   },
   image: {
-    width: 100,
-    height: 100,
+    width: 80,
+    height: 80,
     resizeMode: 'contain',
+  },
+  textSection: {
+    alignItems: 'flex-start',
+    justifyContent: 'flex-start',
+    textAlign: 'left',
   },
 });

@@ -49,7 +49,6 @@ function App(): React.JSX.Element {
           />
         )}
         numColumns={2}
-        contentContainerStyle={styles.flatListContainer} 
       />
     </View>
   );
@@ -57,9 +56,10 @@ function App(): React.JSX.Element {
 
 const styles = StyleSheet.create({
   safePadding: {
-    padding: '10%',
+    paddingHorizontal: '5%',
+    paddingVertical: '15%',
     backgroundColor: '#F3F3F3',
-    flex: 1,  
+    flex: 1,
   },
   mainHeader: {
     fontWeight: '600',
@@ -67,8 +67,8 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   flatListContainer: {
-    justifyContent: 'space-between', 
-    alignItems: 'center', 
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
 });
 
