@@ -7,5 +7,6 @@ import App from './src/App';
 import {name as appName} from './app.json';
 import Question1 from './src/question-1';
 import UseMemoQuestion from './src/useMemo/use_memo';
+import UseContextPractice from './src/useContext';
 
-AppRegistry.registerComponent(appName, () => UseMemoQuestion);
+AppRegistry.registerComponent(appName, () => UseContextPractice);
