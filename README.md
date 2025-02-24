@@ -2,6 +2,14 @@ This is a new [**React Native**](https://reactnative.dev) project, bootstrapped 
 
 # Getting Started
 
+Scenario:
+You have two TextInput fields, input1 and input2. The goal is to:
+
+When the user types in the first TextInput and presses the "Enter" key (or a specific button), the focus should automatically shift to the second TextInput.
+The second TextInput should only accept numeric input. If the user types anything other than numbers, it should be cleared instantly.
+If the second TextInput value exceeds 3 digits, it should automatically move the focus to a third TextInput (or show an alert that the input limit has been exceeded).
+You can use useRef to manage the references of the inputs and useEffect to monitor the state changes or value limits.
+
 > **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
 
 ## Step 1: Start Metro
